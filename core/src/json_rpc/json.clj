@@ -1,6 +1,5 @@
 (ns json-rpc.json
   (:require
-   [camel-snake-kebab.core :as csk]
    [clojure.data.json :as json]
    [clojure.string :as str]))
 
@@ -16,7 +15,7 @@
     (json/write-str m))
 
   (read-str [this s]
-    (json/read-str s :key-fn csk/->kebab-case-keyword)))
+    (json/read-str s :key-fn keyword)))
 
 (def data-json
   "An instance of [[DataJson]]."
